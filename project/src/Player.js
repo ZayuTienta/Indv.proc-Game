@@ -1,7 +1,6 @@
 var Player = cc.Sprite.extend({
   ctor: function() {
         this._super();
-
         this.initWithFile( 'images/inta1.png' );   
         this.dir = Player.DIR.DOWN;
         this.state= Player.STATE.MINE;
