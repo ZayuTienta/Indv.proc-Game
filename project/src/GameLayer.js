@@ -3,6 +3,7 @@ var GameLayer = cc.LayerColor.extend({
         this._super( new cc.Color4B( 255, 255,255, 255 ) );
         this.setPosition( new cc.Point( 0, 0 ) );
         this.setKeyboardEnabled( true );
+        
         this.bgMine=cc.Sprite.create('images/MineCirc.png');
         this.bgMine.setPosition(new cc.Point(743/2,573/ 2));
         this.addChild(this.bgMine,1);
@@ -10,6 +11,7 @@ var GameLayer = cc.LayerColor.extend({
         this.mine.setPosition(new cc.Point(0,0));
         this.addChild(this.mine);
         this.mine.scheduleUpdate();
+
         this.player = new Player();
         this.player.setPosition(new cc.Point(746/2,596/ 2));
         this.addChild( this.player ,1);
@@ -20,9 +22,9 @@ var GameLayer = cc.LayerColor.extend({
     }
     ,
     onKeyDown: function( e ) {
-    this.player.onKeyDown(e);
+        this.player.onKeyDown(e);
     
-    this.mine.onKeyDown(e);
+        this.mine.onKeyDown(e);
 
     },
     onKeyUp: function( e ) {

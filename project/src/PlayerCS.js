@@ -1,34 +1,35 @@
-var Player = cc.Sprite.extend({
+var PlayerCS = cc.Sprite.extend({
   ctor: function() {
         this._super();
-        this.initWithFile( 'images/inta1.png' );   
+        this.initWithFile( 'images/caN.png' );   
         this.dir = Player.DIR.DOWN;
         this.state= Player.STATE.MINE;
         this.isWalk=Player.WALK.OFF;
 
-        var animation1x = new cc.Animation.create();
-        animation1x.addSpriteFrameWithFile( 'images/inta1.png' );
-        animation1x.setDelayPerUnit( 0.3 );
-        this.movingAction1x = cc.Animate.create( animation1x );
+        var animationNormal = new cc.Animation.create();
+        animationNormal.addSpriteFrameWithFile( 'images/caN1.png' );
+        animationNormal.addSpriteFrameWithFile( 'images/caN2.png' );
+        animationNormal.setDelayPerUnit( 0.1 );
+        this.movingActionNormal = cc.Animate.create( animationNormal );
 
-        var animation3x = new cc.Animation.create();
-        animation3x.addSpriteFrameWithFile( 'images/inta3.png' );
-        animation3x.setDelayPerUnit( 0.3 );
-        this.movingAction3x = cc.Animate.create( animation3x );
+        var animationLeft = new cc.Animation.create();
+        animationLeft.addSpriteFrameWithFile( 'images/caL1.png' );
+        animationLeft.addSpriteFrameWithFile( 'images/caL1.png' );
+        animationLeft.setDelayPerUnit( 0.1 );
+        this.movingActionLeft = cc.Animate.create( animationLeft );
 
-        var animation1 = new cc.Animation.create();
-		animation1.addSpriteFrameWithFile( 'images/inta1a.png' );
-		animation1.addSpriteFrameWithFile( 'images/inta1b.png' );
+        var animationRight = new cc.Animation.create();
+		animationRight.addSpriteFrameWithFile( 'images/caR1.png' );
+		animationRight.addSpriteFrameWithFile( 'images/caR2.png' );
        // animation1.addSpriteFrameWithFile( 'images/inta1.png' );
-		animation1.setDelayPerUnit( 0.4);
-        this.movingAction1 = cc.Animate.create( animation1 );
+		animation1.setDelayPerUnit( 0.1);
+        this.movingActionRight = cc.Animate.create( animationRight );
         
-        var animation3 = new cc.Animation.create();
-        animation3.addSpriteFrameWithFile( 'images/inta3a.png' );
-        animation3.addSpriteFrameWithFile( 'images/inta3b.png' );
-      //  animation3.addSpriteFrameWithFile( 'images/inta3.png' );
-        animation3.setDelayPerUnit( 0.4 );
-        this.movingAction3 = cc.Animate.create( animation3 );
+        var animationHit = new cc.Animation.create();
+        animationHit.addSpriteFrameWithFile( 'images/caH1.png' );
+        animationHit.addSpriteFrameWithFile( 'images/caH2.png' );
+        animation3.setDelayPerUnit( 0.1 );
+        this.movingAction3 = cc.Animate.create( animationHit );
         this.pressing=Player.PRESS.OFF;
         
     },
@@ -121,15 +122,7 @@ var Player = cc.Sprite.extend({
             
             console.log("3");
             }
-        else if(e==cc.KEY.down){
-            this.setDirection(1);
-            this.anima();
-            
-            console.log("1");
-            }
-        else if(e==cc.KEY.space){
-            console.log("ssss");
-            }
+        
             
         }
         
@@ -146,25 +139,5 @@ var Player = cc.Sprite.extend({
     
 
 });
-Player.STATE = {
-	MINE: 2,
-	NORMAL: 1,
-	TALK: 3,
-	DIG: 4,
-};
-Player.DIR = {
-	UP: 3,
-    RIGHT: 2,
-    DOWN: 1,
-    LEFT: 4,
-
-};
-Player.WALK = {
-    OFF: 1,
-    ON: 2,
-};
-Player.PRESS ={
-    OFF: 1,
-    ON: 2,
-}
+    
 
